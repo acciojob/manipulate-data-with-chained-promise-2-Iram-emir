@@ -1,8 +1,5 @@
-//your JS code here. If required.
 function manipulateArray() {
-    const outputDiv = document.getElementById("output");
-    
-    // Initial Promise with a 3-second delay
+    // Initial Promise that resolves after 3 seconds with the array [1, 2, 3, 4]
     new Promise((resolve) => {
         setTimeout(() => {
             resolve([1, 2, 3, 4]);
@@ -13,7 +10,7 @@ function manipulateArray() {
         return new Promise((resolve) => {
             setTimeout(() => {
                 const evenNumbers = arr.filter(num => num % 2 === 0);
-                outputDiv.textContent = evenNumbers.join(", ");
+                document.getElementById("output").innerText = evenNumbers.join(",");
                 resolve(evenNumbers);
             }, 1000);
         });
@@ -23,12 +20,12 @@ function manipulateArray() {
         return new Promise((resolve) => {
             setTimeout(() => {
                 const multipliedNumbers = evenNumbers.map(num => num * 2);
-                outputDiv.textContent = multipliedNumbers.join(", ");
+                document.getElementById("output").innerText = multipliedNumbers.join(",");
                 resolve(multipliedNumbers);
             }, 2000);
         });
     });
 }
 
-
-document.addEventListener("DOMContentLoaded", manipulateArray);
+// Call the function when the page loads
+manipulateArray();
